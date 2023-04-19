@@ -85,7 +85,10 @@ public class patientUpdate extends JFrame{
                         }
                         //if the name data returns nothing, then it means no data was returned. show message dialog to notify user
                         if (names.isEmpty()) {
-                            JOptionPane.showMessageDialog(patientUpdate.this, "NO DATA FOUND!", "Error", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(patientUpdate.this,
+                                    "NO DATA FOUND!",
+                                    "Error",
+                                    JOptionPane.ERROR_MESSAGE);
                         } else {
                             DefaultComboBoxModel model = new DefaultComboBoxModel(names.toArray());
                             searchResultCB.setModel(model);
@@ -101,7 +104,10 @@ public class patientUpdate extends JFrame{
                         ex.printStackTrace();
                     }
                 }else {
-                    JOptionPane.showMessageDialog(patientUpdate.this, "Please select a search option and enter a search term.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(patientUpdate.this,
+                            "Please select a search option and enter a search term.",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
 
             }
@@ -125,13 +131,17 @@ public class patientUpdate extends JFrame{
 
                     //If success, show a message dialog, reset the comboBox and reset the text field to blank.
                     if (result > 0) {
-                        JOptionPane.showMessageDialog(patientUpdate.this, "Patient information updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(patientUpdate.this, "Patient information updated successfully!",
+                                "Success",
+                                JOptionPane.INFORMATION_MESSAGE);
                         searchResultCB.removeAllItems();
                         patientIdTF.setText("");
                         patientNameTF.setText("");
                         patientDoBTF.setText("");
                     } else {
-                        JOptionPane.showMessageDialog(patientUpdate.this, "Unable to update patient information!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(patientUpdate.this, "Unable to update patient information!",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
                     }
                     stm.close();
                 } catch (Exception ex) {
@@ -145,7 +155,10 @@ public class patientUpdate extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Ask the user if they really want to delete this patient
-                int confirm = JOptionPane.showConfirmDialog(patientUpdate.this, "Are you sure you want to delete this patient?", "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int confirm = JOptionPane.showConfirmDialog(patientUpdate.this, "Are you sure you want to delete this patient?",
+                        "Confirm Deletion",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE);
                 //When user chose "YES"
                 if (confirm == JOptionPane.YES_OPTION) {
                     try {
@@ -160,13 +173,19 @@ public class patientUpdate extends JFrame{
 
                         //If success, show a message dialog, reset the comboBox and reset the text field to blank.
                         if (result > 0) {
-                            JOptionPane.showMessageDialog(patientUpdate.this, "Patient information deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(patientUpdate.this,
+                                    "Patient information deleted successfully!",
+                                    "Success",
+                                    JOptionPane.INFORMATION_MESSAGE);
                             searchResultCB.removeAllItems();
                             patientIdTF.setText("");
                             patientNameTF.setText("");
                             patientDoBTF.setText("");
                         } else {
-                            JOptionPane.showMessageDialog(patientUpdate.this, "Unable to delete patient information!", "Error", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(patientUpdate.this,
+                                    "Unable to delete patient information!",
+                                    "Error",
+                                    JOptionPane.ERROR_MESSAGE);
                         }
                         stm.close();
                     } catch (Exception ex) {
